@@ -116,6 +116,11 @@ jobs:
       - name: ⌛️ Compilation environment preparation
         uses: ./.github/workflows/build-env
 
+      - name: 🚀 Install aria2 for faster downloads
+        run: |
+          sudo apt-get update
+          sudo apt-get install aria2 -y
+        
       - name: ⚙️ Get neccssary tools
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
         uses: ./.github/workflows/build-ready
