@@ -113,14 +113,16 @@ jobs:
             gcc-32
           key: ${{ runner.os }}-toolchain-${{ hashFiles('**/build-ready') }}-${{ env.CLANG_SOURCE }}
 
-      - name: ⌛️ Compilation environment preparation
-        uses: ./.github/workflows/build-env
-
       - name: 🚀 Install aria2 for faster downloads
         run: |
           sudo apt-get update
           sudo apt-get install aria2 -y
         
+
+      - name: ⌛️ Compilation environment preparation
+        uses: ./.github/workflows/build-env
+
+      
       - name: ⚙️ Get neccssary tools
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
         uses: ./.github/workflows/build-ready
