@@ -119,7 +119,8 @@ jobs:
         run: |
           # Only ${{ env.DEVICE_NAME }} use it.
           cd $GITHUB_WORKSPACE/device_kernel
-          # Nothing
+          git clone https://github.com/oppo-source/android_kernel_modules_and_devicetree_oppo_sm6375.git --depth 1 -b oppo/sm6375_u_14.0.0_k10x_5g
+          tree
 
       - name: 🧰 Patch Kernel of Re:Kernel
         uses: ./.github/workflows/patch-rekernel
