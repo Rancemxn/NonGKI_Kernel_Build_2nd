@@ -26,7 +26,7 @@ env:
 
   DEFCONFIG_SOURCE: ""
   DEFCONFIG_NAME : "codename_defconfig"
-  DEFCONFIG_ORIGIN_IMAGE: ""
+  DEFCONFIG_ORIGIN_IMAGE: "https://github.com/Rancemxn/NonGKI_Kernel_Build_2nd/releases/download/DEFCONFIG_CONFIG_BOOT/boot_origin.img"
   DEFCONFIG_FROM_BOOT: true
 
   KERNELSU_SOURCE : ""
