@@ -15,7 +15,7 @@ env:
   KERNEL_SOURCE : "https://github.com/oppo-source/android_kernel_oppo_sm6375.git"
   KERNEL_BRANCH : "oppo/sm6375_u_14.0.0_k10x_5g"
 
-  CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
+  CLANG_SOURCE : "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/413febb26cbd05d9a1e44f089190ac892f72e684.tar.gz"
   CLANG_BRANCH : ""
 
   GCC_GNU : true
