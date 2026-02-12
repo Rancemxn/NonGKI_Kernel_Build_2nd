@@ -10,7 +10,7 @@ env:
   DEVICE_CODENAME : "PGGM10"
 
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
-  EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
+  EXTRA_CMDS : "LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/oppo-source/android_kernel_oppo_sm6375.git"
   KERNEL_BRANCH : "oppo/sm6375_u_14.0.0_k10x_5g"
