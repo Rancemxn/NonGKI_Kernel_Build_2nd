@@ -102,11 +102,22 @@ jobs:
     steps:
       - name: ⏰ Checkout repository
         uses: actions/checkout@v4
+      
+      - name: 📂 Cache Toolchains
+        id: cache-toolchain
+        uses: actions/cache@v4
+        with:
+          path: |
+            clang-custom
+            gcc-64
+            gcc-32
+          key: ${{ runner.os }}-toolchain-${{ hashFiles('**/build-ready') }}-${{ env.CLANG_SOURCE }}
 
       - name: ⌛️ Compilation environment preparation
         uses: ./.github/workflows/build-env
 
       - name: ⚙️ Get neccssary tools
+        if: steps.cache-toolchain.outputs.cache-hit != 'true'
         uses: ./.github/workflows/build-ready
 
       - name: 🪝 Patch Kernel of SUSFS

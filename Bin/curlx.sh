@@ -1,2 +1,2 @@
 # usage: curlx <url> <file name>
-curl -C - --progress-bar -L $1 -o $2
+aria2c -x 16 -s 16 -j 16 -k 1M -o
