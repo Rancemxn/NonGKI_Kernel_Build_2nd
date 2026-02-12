@@ -9,7 +9,7 @@ env:
   DEVICE_NAME : "OPPO_K10X"
   DEVICE_CODENAME : "PGGM10"
 
-  CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
+  CUSTOM_CMDS : "CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/oppo-source/android_kernel_oppo_sm6375.git"
@@ -135,15 +135,10 @@ jobs:
 
       - name: 🪛 Extra Kernel Options
         run: |
-          echo "$GITHUB_WORKSPACE/clang-custom/bin" >> $GITHUB_PATH
-          echo "$GITHUB_WORKSPACE/gcc-64/bin" >> $GITHUB_PATH
-          echo "$GITHUB_WORKSPACE/gcc-32/bin" >> $GITHUB_PATH
-          export PATH="$GITHUB_WORKSPACE/clang-custom/bin:$PATH"
-          which ld.lld 
           git clone https://github.com/oppo-source/android_kernel_modules_and_devicetree_oppo_sm6375.git --depth 1 -b oppo/sm6375_u_14.0.0_k10x_5g tmp_extra_kernel
           cp tmp_extra_kernel/* ./ -R -v
           cp tmp_extra_kernel/* ../ -R -v
-          cd $GITHUB_WORKSPACE/device_kernel
+
       - name: 🧰 Patch Kernel of Re:Kernel
         uses: ./.github/workflows/patch-rekernel
 
