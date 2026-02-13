@@ -11,7 +11,7 @@ env:
   DEVICE_CODENAME : "PGGM10"
 
   CUSTOM_CMDS : "CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
-  EXTRA_CMDS : "LLVM=1 LLVM_IAS=1 KCFLAGS+=-Wno-error KCFLAGS+=-Wno-declaration-after-statement"
+  EXTRA_CMDS : "LLVM=1 LLVM_IAS=1 KCFLAGS+=-Wno-error KCFLAGS+=-Wno-declaration-after-statement KCFLAGS+=-Wno-unknown-warning-option"
 
   KERNEL_SOURCE : "https://github.com/Rancemxn/android_kernel_oppo_sm6375.git"
   KERNEL_BRANCH : "oppo/sm6375_u_14.0.0_k10x_5g"
@@ -37,7 +37,7 @@ env:
   KERNELSU_AUTO_FORK : "sukisu" # magic, rsuntk, next, resukisu and sukisu
 
   SUSFS_ENABLE : true
-  SUSFS_FIXED : false
+  SUSFS_FIXED : true
 
   AK3_SOURCE : "https://github.com/osm0sis/AnyKernel3.git"
   AK3_BRANCH : "master"
@@ -83,7 +83,7 @@ env:
   GENERATE_CHIP: "qcom" # only supported for qcom and mediatek.
 
   BUILD_DEBUGGER: "false" # Output build errors.
-  SKIP_PATCH: "false" # Ignore errors found in Patch Debugger.
+  SKIP_PATCH: "true" # Ignore errors found in Patch Debugger.
 
   BUILD_OTHER_CONFIG: "false" # Merge config files.
   MERGE_CONFIG_FILES: "vendor/debugfs.config,vendor/lahaina_QGKI.config"
