@@ -1,6 +1,7 @@
 name: Build OPPO K10X (5.4.254)(ColorOS14)
 
 on:
+  push:
   workflow_call:
   workflow_dispatch:
 
