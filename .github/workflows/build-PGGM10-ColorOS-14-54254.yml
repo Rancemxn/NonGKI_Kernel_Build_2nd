@@ -9,7 +9,7 @@ env:
   DEVICE_NAME : "OPPO_K10X"
   DEVICE_CODENAME : "PGGM10"
 
-  CUSTOM_CMDS : "KCFLAGS=-Wno-error ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
+  CUSTOM_CMDS : "CC=clang KCFLAGS+=-Wno-error ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/oppo-source/android_kernel_oppo_sm6375.git"
