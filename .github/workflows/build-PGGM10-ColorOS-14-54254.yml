@@ -9,7 +9,7 @@ env:
   DEVICE_NAME : "OPPO_K10X"
   DEVICE_CODENAME : "PGGM10"
 
-  CUSTOM_CMDS : "CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
+  CUSTOM_CMDS : "ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androideabi- CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/oppo-source/android_kernel_oppo_sm6375.git"
@@ -112,19 +112,11 @@ jobs:
             gcc-64
             gcc-32
           key: ${{ runner.os }}-toolchain-${{ hashFiles('**/build-ready') }}-${{ env.CLANG_SOURCE }}
-
-      - name: 🚀 Install aria2 for faster downloads
-        run: |
-          sudo apt-get update
-          sudo apt-get install aria2 -y
         
-
       - name: ⌛️ Compilation environment preparation
         uses: ./.github/workflows/build-env
-
       
       - name: ⚙️ Get neccssary tools
-        if: steps.cache-toolchain.outputs.cache-hit != 'true'
         uses: ./.github/workflows/build-ready
 
       - name: 🪝 Patch Kernel of SUSFS
